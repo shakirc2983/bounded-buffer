@@ -33,9 +33,9 @@ public class MemoryBuffer {
             System.out.println(this.buffer);
             notEmpty.signal();
         } finally {
-            Thread.sleep(1000);
             this.lock.unlock();
         }
+        Thread.sleep(1000);
     }
 
     public void consumeData() throws InterruptedException {
@@ -50,9 +50,9 @@ public class MemoryBuffer {
             this.buffer.remove(0);
             notFull.signal();
         } finally {
-            Thread.sleep(1000);
             this.lock.unlock();
         }
+        Thread.sleep(1100);
     }
 
     public void displayBuffer() {
